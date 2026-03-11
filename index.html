@@ -1,44 +1,83 @@
 <!doctype html>
+
 <html lang="vi">
-  <head>
-    <meta charset="UTF-8" />
+<head>
+  <meta charset="UTF-8" />
 
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    />
+<meta name="viewport"
+ content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-    <title>ANND PHIM - Xem Phim Trực Tuyến</title>
+  <title>ANND PHIM - Xem Phim Trực Tuyến</title>
 
-    <meta name="description" content="Xem phim giải trí đỉnh cao - Chất lượng cao" />
-    <meta name="author" content="Annd" />
+  <meta name="description" content="Xem phim giải trí đỉnh cao - Chất lượng cao" />
+  <meta name="author" content="Annd" />
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/logo.png" />
+  <!-- Favicon -->
 
-    <!-- PWA -->
-    <link rel="manifest" href="/manifest.json" />
-    <meta name="theme-color" content="#000000" />
+  <link rel="icon" type="image/png" href="/logo.png" />
 
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <meta name="apple-mobile-web-app-title" content="ANND PHIM" />
-    <link rel="apple-touch-icon" href="/logo-512.png" />
+  <!-- PWA -->
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="ANND PHIM - Xem Phim Trực Tuyến" />
-    <meta property="og:description" content="Xem phim giải trí đỉnh cao - Chất lượng cao" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://anndphimmoi.vercel.app/" />
-    <meta property="og:image" content="https://anndphimmoi.vercel.app/og-image.jpg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:site_name" content="ANND PHIM" />
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#000000" />
 
-  </head>
+  <!-- Android PWA -->
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <!-- iOS PWA -->
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="ANND PHIM" />
+  <link rel="apple-touch-icon" href="/logo-512.png" />
+
+  <!-- Disable auto detect phone -->
+
+  <meta name="format-detection" content="telephone=no" />
+
+  <!-- SEO -->
+
+  <meta name="robots" content="index, follow" />
+  <meta name="language" content="Vietnamese" />
+
+  <!-- Open Graph (Facebook / Zalo / Messenger) -->
+
+  <meta property="og:title" content="ANND PHIM - Xem Phim Trực Tuyến" />
+  <meta property="og:description" content="Xem phim giải trí đỉnh cao - Chất lượng cao" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://anndphimmoi.vercel.app/" />
+  <meta property="og:image" content="https://anndphimmoi.vercel.app/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="ANND PHIM" />
+
+  <!-- Twitter -->
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ANND PHIM - Xem Phim Trực Tuyến">
+  <meta name="twitter:description" content="Xem phim giải trí đỉnh cao - Chất lượng cao">
+  <meta name="twitter:image" content="https://anndphimmoi.vercel.app/og-image.jpg">
+
+</head>
+
+<body>
+
+  <div id="root"></div>
+
+  <script type="module" src="/src/main.tsx"></script>
+
+  <!-- Service Worker -->
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("/sw.js")
+        .then(() => console.log("Service Worker registered"))
+        .catch(err => console.log("SW error", err))
+      })
+    }
+  </script>
+
+</body>
 </html>
